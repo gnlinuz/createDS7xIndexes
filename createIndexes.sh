@@ -1,12 +1,14 @@
+#!/bin/bash
+
 # Use this script to create indexes and rebuild them
 #
 # Created on 09/Nov/2021
 # Author = G.Nikolaidis
 # Version 1.0.0
 
-# Create --set index-type:equality indexes and rebuild them with default values
-# --set index-entry-limit:4000
-#
+# Create indexes and rebuild them with default values
+# default --set index-entry-limit:4000
+# default --set index-type:equality
 
 # Start
 #
@@ -26,8 +28,8 @@ BACKENDNAME=exampleOrgBackend
 INDEXTYPE=equality
 INDEXENTRYLIMIT=4000
 BASEDN=dc=example,dc=org
-# add or remove indexes to be created, index-type:equality
-# if other type of indexes needed better add a new loop
+#
+# add or remove indexes to be created
 #
 INDEXES=("cn" "mail" "ds-certificate-subject-dn" "ds-certificate-fingerprint" "uid")
 
