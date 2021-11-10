@@ -23,10 +23,9 @@ SSLPORT=2636
 BIND="uid=admin"
 BINDPASSWORD=Password1
 BACKENDNAME=exampleOrgBackend
-TYPE=je
 INDEXTYPE=equality
+INDEXENTRYLIMIT=4000
 BASEDN=dc=example,dc=org
-DC=example
 # add or remove indexes to be created, index-type:equality
 # if other type of indexes needed better add a new loop
 #
@@ -48,6 +47,7 @@ for i in ${INDEXES[@]}; do
   $OPENDJ/bin/./dsconfig create-backend-index \
   --backend-name $BACKENDNAME \
   --set index-type:$INDEXTYPE \
+  --set index-entry-limit:$INDEXENTRYLIMIT
   --type generic \
   --index-name $i \
   --hostname $FQDN \
