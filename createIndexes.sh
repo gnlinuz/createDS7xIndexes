@@ -24,6 +24,7 @@ BIND="uid=admin"
 BINDPASSWORD=Password1
 BACKENDNAME=exampleOrgBackend
 TYPE=je
+INDEXTYPE=equality
 BASEDN=dc=example,dc=org
 DC=example
 # add or remove indexes to be created, index-type:equality
@@ -46,7 +47,7 @@ for i in ${INDEXES[@]}; do
   printf "creting $i index..."
   $OPENDJ/bin/./dsconfig create-backend-index \
   --backend-name $BACKENDNAME \
-  --set index-type:equality \
+  --set index-type:$INDEXTYPE \
   --type generic \
   --index-name $i \
   --hostname $FQDN \
