@@ -49,7 +49,7 @@ for i in ${INDEXES[@]}; do
   $OPENDJ/bin/./dsconfig create-backend-index \
   --backend-name $BACKENDNAME \
   --set index-type:$INDEXTYPE \
-  --set index-entry-limit:$INDEXENTRYLIMIT
+  --set index-entry-limit:$INDEXENTRYLIMIT \
   --type generic \
   --index-name $i \
   --hostname $FQDN \
